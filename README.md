@@ -22,6 +22,8 @@
 <img src="https://img.shields.io/badge/macOS-000000.svg?style=for-the-badge&logo=apple&logoColor=white">
 
 ---
+## 실행 화면
+---
 ## 구현 포인트
 
 
