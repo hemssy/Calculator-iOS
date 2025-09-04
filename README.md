@@ -10,7 +10,7 @@
     - `backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)`
     - `height = 80`
     - `width = 80`
-    - `layer.cornerRadius = 40`
+    - `layer.cornerRadius = 4`
 - **`horizontalStackView` 속성**
     - `axis = .horizontal`
     - `backgroundColor = .black`
