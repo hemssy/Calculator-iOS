@@ -7,18 +7,18 @@
 
 > 💡 **과제힌트**
 > 
-> 버튼을 만드는 func makeButton 이라는 메서드가 있었고 인자로 titleValue: String, action: Selector, backgroundColor: UIColor 를 받을 수 있으면 편했겠죠.
+> 버튼을 만드는 ```func makeButton``` 이라는 메서드가 있었고 인자로 ```titleValue: String, action: Selector, backgroundColor: UIColor``` 를 받을 수 있으면 편했겠죠.
 
 
 ### 레벨업 내용
 
-연산자 버튼만 주황색으로 바꿔야한다. 연산자인지 숫자인지 구분할 수 있어야 색을 다르게 줄 수 있기 때문에 클래스 상단에 프로퍼티로 연산자 set을 추가한다.
+연산자 버튼만 주황색으로 바꿔야한다. 연산자인지 숫자인지 구분할 수 있어야 색을 다르게 줄 수 있기 때문에 클래스 상단에 프로퍼티로 연산자 ```set```을 추가한다.
 
 ```swift
 private let operatorSet: Set<String> = ["+", "-", "*", "/", "AC", "="]
 ```
 
-배경색은 버튼을 만들 때 정해지기 때문에 ```makeButton``` 메서드를 수정해야된다. 기존의 ```makeButton```은 ```title```만 받고있는데, 과제힌트를 보면 ```action```, ```backgroundColor```를 추가로 받으라고한다. 일단 action은 이번 레벨과 상관없어보이니 ```nil```로 두고 ```backgroundColor```를 ```bg```로 받아준다.
+배경색은 버튼을 만들 때 정해지기 때문에 ```makeButton``` 메서드를 수정해야된다. 기존의 ```makeButton```은 ```title```만 받고있는데, 과제힌트를 보면 ```action```, ```backgroundColor```를 추가로 받으라고한다. 일단 ```action```은 이번 레벨과 상관없어보이니 ```nil```로 두고 ```backgroundColor```를 ```bg```로 받아준다.
 
 ```swift
 private func makeButton(titleValue: String,
