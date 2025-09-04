@@ -36,7 +36,7 @@
 
 구글서치를 통해, ```addSubview```가 아니라 ```addArrangedSubview``` 를 사용해서 해결했다.
 
-> **[addSubview 와 addArrangedSubview에 대한 글을 블로그에 정리해봤다.](https://velog.io/@hemssy/posts)**
+> **[addSubview 와 addArrangedSubview에 대한 글을 블로그에 정리해봤다.](https://velog.io/@hemssy/addArrangedSubview-와-addSubview)**
 
 
 ### 실행화면
