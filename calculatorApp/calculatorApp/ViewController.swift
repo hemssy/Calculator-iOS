@@ -4,7 +4,7 @@ import SnapKit
 class ViewController: UIViewController {
     
     let label = UILabel()
-    let horizontalStackView = UIStackView()
+    let verticalStackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,25 +27,45 @@ class ViewController: UIViewController {
             make.height.equalTo(100)
         }
         
+        // === 세로 스택뷰 ===
+        verticalStackView.axis = .vertical
+        verticalStackView.backgroundColor = .black
+        verticalStackView.spacing = 10
+        verticalStackView.distribution = .fillEqually
+        view.addSubview(verticalStackView)
+        
+        verticalStackView.snp.makeConstraints { make in
+            make.width.equalTo(350)
+            make.top.equalTo(label.snp.bottom).offset(60)
+            make.centerX.equalToSuperview()
+        }
+        
         // === 버튼 4개 만들기 ===
-        let titles = ["7", "8", "9", "+"]
-        let buttons = titles.map { makeButton(title: $0) }
+        let gridTitles: [[String]] = [
+            ["7", "8", "9", "+"],
+            ["4", "5", "6", "-"],
+            ["1", "2", "3",  "*"],
+            ["AC", "0", "=", "/"]
+        ]
         
-        // === 스택뷰 생성 ===
-        let row = makeHorizontalStackView(buttons) // row는 가로한줄! 스택뷰만들기함수로 생성된 객체 stackView를 row에 담는다.
-        view.addSubview(row)
-        
-        row.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.equalTo(80)
+        for rowTitles in gridTitles {
+            let buttons = rowTitles.map { makeButton(title: $0) }
+            let row = makeHorizontalStackView(buttons)
+            
+            
+            row.snp.makeConstraints { make in
+                make.height.equalTo(80)
+            }
+            
+            verticalStackView.addArrangedSubview(row)
         }
     }
     
-    // 과제힌트: [UIView] → UIStackView
+    // LV2 과제힌트: [UIView] → UIStackView
     // [UIView] 배열을 받아서 UIStackView 안에 넣어서 가로로 나열한 뒤에 그 스택뷰를 리턴한다.
     private func makeHorizontalStackView(_ views: [UIView]) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
+        stackView.backgroundColor = .black
         stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.distribution = .fillEqually
@@ -59,7 +79,11 @@ class ViewController: UIViewController {
         b.setTitleColor(.white, for: .normal)
         b.titleLabel?.font = .boldSystemFont(ofSize: 30)
         b.backgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
-        b.layer.cornerRadius = 8
+        b.layer.cornerRadius = 4
+        
+        b.snp.makeConstraints { make in
+            make.width.height.equalTo(80)
+        }
         return b
     }
 }
