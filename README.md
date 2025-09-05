@@ -21,8 +21,6 @@ Lv1부터 Lv8까지 총 여덟단계에 걸쳐서 발전시킨 과제입니다.
 ### OS
 <img src="https://img.shields.io/badge/macOS-000000.svg?style=for-the-badge&logo=apple&logoColor=white">
 
-프레임워크는 ```UIKit```와 ```SnapKit```을 사용했습니다.
-
 ---
 ## 실행 화면
 ---
