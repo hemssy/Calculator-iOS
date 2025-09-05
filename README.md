@@ -1,5 +1,5 @@
 # CalculatorApp
-## [Lv7] Swift로 계산기 앱 만들기
+## [Lv6] Swift로 계산기 앱 만들기
 
 ### 요구사항
 
