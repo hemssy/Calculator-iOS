@@ -17,7 +17,7 @@
     - `spacing = 10`
     - `distribution = .fillEqually`
 - **`horizontalStackView AutoLayout`**
-    - height = 80
+    - `height = 80`
 
 
 > 과제힌트: `func makeHorizontalStackView(_ views: [UIView]) → UIStackView` 와 같은 형태로 `horizontalStackView` 를 생성하는 메서드를 정의해두면 좋습니다. Lv2에서는 첫줄만 만들지만 똑같은 스택뷰 4줄이 필요하기 때문이죠.
