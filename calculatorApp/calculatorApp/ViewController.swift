@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
         // === 라벨 ===
         label.textColor = .white
-        label.text = "12345"
+        label.text = "0" // 기본 텍스트는 "0"
         label.textAlignment = .right
         label.font = .systemFont(ofSize: 60, weight: .bold)
         view.addSubview(label)
@@ -30,7 +30,6 @@ class ViewController: UIViewController {
         
         // === 세로 스택뷰 ===
         verticalStackView.axis = .vertical
-        verticalStackView.backgroundColor = .black
         verticalStackView.spacing = 10
         verticalStackView.distribution = .fillEqually
         view.addSubview(verticalStackView)
@@ -41,56 +40,68 @@ class ViewController: UIViewController {
             make.centerX.equalToSuperview()
         }
         
-        // === 버튼안에 들어갈 gridTitles ===
+        // === 버튼 ===
         let gridTitles: [[String]] = [
             ["7", "8", "9", "+"],
             ["4", "5", "6", "-"],
-            ["1", "2", "3",  "*"],
+            ["1", "2", "3", "*"],
             ["AC", "0", "=", "/"]
         ]
         
-        // rowTitles는 gridTitles의 가로한줄
         for rowTitles in gridTitles {
             let buttons = rowTitles.map { title in
                 let bg = operatorSet.contains(title) ? .systemOrange : UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
-                return makeButton(titleValue: title, backgroundColor: bg)
+                return makeButton(titleValue: title, action: #selector(buttonClicked(_:)), backgroundColor: bg)
             }
             let row = makeHorizontalStackView(buttons)
-            
             row.snp.makeConstraints { make in
                 make.height.equalTo(80)
             }
-            
             verticalStackView.addArrangedSubview(row)
         }
     }
     
-    // LV2 과제힌트: [UIView] → UIStackView
-    // [UIView] 배열을 받아서 UIStackView 안에 넣어서 가로로 나열한 뒤에 그 스택뷰를 리턴한다.
     private func makeHorizontalStackView(_ views: [UIView]) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
-        stackView.backgroundColor = .black
         stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.distribution = .fillEqually
         return stackView
     }
     
-    // 버튼 생성 함수
-    private func makeButton(titleValue: String, action: Selector? = nil, backgroundColor: UIColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)) -> UIButton {
-        
+    private func makeButton(titleValue: String, action: Selector, backgroundColor: UIColor) -> UIButton {
         let b = UIButton(type: .system)
         b.setTitle(titleValue, for: .normal)
         b.setTitleColor(.white, for: .normal)
         b.titleLabel?.font = .boldSystemFont(ofSize: 30)
-        b.backgroundColor = backgroundColor // 전달받은 배경색 사용
+        b.backgroundColor = backgroundColor
         b.layer.cornerRadius = 40
-        
         b.snp.makeConstraints { make in
             make.width.height.equalTo(80)
         }
-    
+        b.addTarget(self, action: action, for: .touchUpInside)
         return b
     }
+
+    @objc private func buttonClicked(_ sender: UIButton) {
+        guard let title = sender.currentTitle else { return }
+        label.text = (label.text ?? "") + title
+        
+        // 맨앞자리0 정리하는 메서드 호출
+        noFirstZero()
+    }
+    
+    private func noFirstZero() {
+        guard var text = label.text else { return }
+        
+        if text.count > 1 && text.first == "0" {
+            while text.count > 1 && text.first == "0" {
+                text.removeFirst()
+            }
+        }
+        
+        label.text = text //noFirstZero()는 무조건 실행되니까 여기서 써도됨
+    }
+    
 }
 
