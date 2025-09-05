@@ -84,7 +84,7 @@ class ViewController: UIViewController {
         b.setTitleColor(.white, for: .normal)
         b.titleLabel?.font = .boldSystemFont(ofSize: 30)
         b.backgroundColor = backgroundColor // 전달받은 배경색 사용
-        b.layer.cornerRadius = 4
+        b.layer.cornerRadius = 40
         
         b.snp.makeConstraints { make in
             make.width.height.equalTo(80)
