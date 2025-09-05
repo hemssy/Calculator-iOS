@@ -25,6 +25,9 @@ Lv1부터 Lv8까지 총 여덟단계에 걸쳐서 발전시킨 과제입니다.
   <a href="https://github.com/hemssy/CalculatorApp/tree/Lv5">
     <img src="https://img.shields.io/badge/Lv5-000000?style=for-the-badge&labelColor=f5f5f5&color=f5f5f5">
   </a>
+  <a href="https://github.com/hemssy/CalculatorApp/tree/Lv6">
+    <img src="https://img.shields.io/badge/Lv6-000000?style=for-the-badge&labelColor=f5f5f5&color=f5f5f5">
+  </a>
   <a href="https://github.com/hemssy/CalculatorApp/tree/Lv7">
     <img src="https://img.shields.io/badge/Lv7-000000?style=for-the-badge&labelColor=f5f5f5&color=f5f5f5">
   </a>
