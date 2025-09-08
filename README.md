@@ -36,6 +36,9 @@ Lv1부터 Lv8까지 총 여덟단계에 걸쳐서 발전시킨 과제입니다.
 
 ---
 ## 실행 화면
+
+<img src="https://github.com/user-attachments/assets/20a3b6dd-48df-4402-8ddd-0fc1a29a497e" width="300" height="600" />
+
 ---
 ## 구현 포인트
 
