@@ -76,3 +76,8 @@ NSExpression은 계산기 등의 연산에 자주 사용되며 문자열을 받�
 
 ### 실행화면
 
+<img width="200" height="500" alt="Simulator Screenshot - iPhone 16 Pro - 2025-09-08 at 12 54 11" src="https://github.com/user-attachments/assets/5d5a27d9-cda6-4f56-9cea-ceac10f7c3ec" />
+
+<img width="200" height="500" alt="Simulator Screenshot - iPhone 16 Pro - 2025-09-08 at 12 54 39" src="https://github.com/user-attachments/assets/cc8f0b02-d076-4884-9a4c-3cec5f9f9eb3" />
+
+
