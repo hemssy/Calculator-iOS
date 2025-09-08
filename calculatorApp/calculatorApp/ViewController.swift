@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         
         // === 라벨 ===
         label.textColor = .white
-        label.text = "0" // 기본 텍스트는 "0"
+        label.text = "0"
         label.textAlignment = .right
         label.font = .systemFont(ofSize: 60, weight: .bold)
         view.addSubview(label)
@@ -82,13 +82,23 @@ class ViewController: UIViewController {
         b.addTarget(self, action: action, for: .touchUpInside)
         return b
     }
-
+    
+    
     @objc private func buttonClicked(_ sender: UIButton) {
         guard let title = sender.currentTitle else { return }
-        label.text = (label.text ?? "") + title
         
-        // 맨앞자리0 정리하는 메서드 호출
+        if title == "AC" {
+            resetCalculator()
+            return
+        }
+        
+        label.text = (label.text ?? "") + title
+    
         noFirstZero()
+    }
+    
+    private func resetCalculator() {
+        label.text = "0"
     }
     
     private func noFirstZero() {
@@ -100,7 +110,7 @@ class ViewController: UIViewController {
             }
         }
         
-        label.text = text //noFirstZero()는 무조건 실행되니까 여기서 써도됨
+        label.text = text
     }
     
 }
