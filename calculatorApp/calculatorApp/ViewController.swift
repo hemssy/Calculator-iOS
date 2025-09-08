@@ -92,8 +92,18 @@ class ViewController: UIViewController {
             return
         }
         
+        if title == "=" {
+            var exp = label.text ?? "0"
+            
+            if let result = calculate(expression: exp) {
+                label.text = "\(result)"
+            } else {
+                label.text = "0"
+            }
+            return
+        }
+        
         label.text = (label.text ?? "") + title
-    
         noFirstZero()
     }
     
