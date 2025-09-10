@@ -57,6 +57,7 @@ Lv1에서 라벨을 프로퍼티로 선언해준 것처럼 ```horizontalStackVie
         b.layer.cornerRadius = 8
         return b
     }
+```
 
 ```swift
         // === 버튼 4개 만들기 ===
