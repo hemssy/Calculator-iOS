@@ -41,7 +41,7 @@ extension ViewController {
         
         for rowTitles in gridTitles {
             let buttons = rowTitles.map { title in
-                let bg = operatorSet.contains(title) ? .systemOrange : UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
+                let bg = operatorArray.contains(title) ? .systemOrange : UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
                 return makeButton(titleValue: title, action: #selector(buttonClicked(_:)), backgroundColor: bg)
             }
             let row = makeHorizontalStackView(buttons)

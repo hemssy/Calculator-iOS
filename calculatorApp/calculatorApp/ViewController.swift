@@ -1,11 +1,23 @@
 import UIKit
 import SnapKit
 
+
+enum CalculatorKey: String, CaseIterable {
+    case add = "+"
+    case subtract = "-"
+    case multiply = "*"
+    case divide = "/"
+    case clear = "AC"
+    case equal = "="
+}
+
+
+
 class ViewController: UIViewController {
     
     let label = UILabel()
     let verticalStackView = UIStackView()
-    let operatorSet: Set<String> = ["+", "-", "*", "/", "AC", "="]
+    let operatorArray: [String] = CalculatorKey.allCases.map { $0.rawValue }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +39,7 @@ class ViewController: UIViewController {
             var exp = label.text ?? "0"
             
             // 끝이 연산자면 하나 제거하기
-            if let last = exp.last, "+-*/".contains(last) {
+            if let last = exp.last, isOperatorChar(last) {
                 exp.removeLast()
             }
             
@@ -40,24 +52,17 @@ class ViewController: UIViewController {
         }
         
         // 3. 연산자 처리
-        if "+-*/".contains(title) {
+        if isOperator(title) {
             let current = label.text ?? "0"
-
-            // 맨 앞이 "0"이면 연산자로 시작하지 않음
             if current == "0" { return }
-
-            // 끝이 이미 연산자면 첫번째것만 남김
-            if let last = current.last, "+-*/".contains(last) {
+            if let last = current.last, isOperatorChar(last) {
                 return
             }
-
-            // 아니면 붙이기
             label.text = current + title
             return
         }
 
-        
-        
+
         // 4. 숫자 처리
         label.text = (label.text ?? "") + title
         noFirstZero()
@@ -82,4 +87,16 @@ class ViewController: UIViewController {
     
 }
 
+
+func isOperator(_ s: String) -> Bool {
+    return [CalculatorKey.add.rawValue,
+            CalculatorKey.subtract.rawValue,
+            CalculatorKey.multiply.rawValue,
+            CalculatorKey.divide.rawValue].contains(s)
+}
+
+
+func isOperatorChar(_ c: Character) -> Bool {
+    return isOperator(String(c))
+}
 
