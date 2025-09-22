@@ -32,7 +32,7 @@ Lv1부터 Lv8까지 총 여덟단계에 걸쳐서 발전시킨 과제입니다.
 <img src="https://img.shields.io/badge/Swift-F05138.svg?style=for-the-badge&logo=swift&logoColor=white">   
 
 ### OS
-<img src="https://img.shields.io/badge/macOS-000000.svg?style=for-the-badge&logo=apple&logoColor=white">
+<img src="https://img.shields.io/badge/iOS-000000.svg?style=for-the-badge&logo=apple&logoColor=white">
 
 ---
 ## 실행 화면
